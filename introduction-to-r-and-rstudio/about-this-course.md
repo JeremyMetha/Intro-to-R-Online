@@ -10,14 +10,31 @@ The goal of this workshop is to teach novice programmers to write code in R for 
 
 Note that this workshop will focus on teaching the fundamentals of the programming language R, and will **not** teach statistical analysis. If you would like help with your statistical analysis, you can contact the [Statistical Consulting Centre](http://www.scc.ms.unimelb.edu.au/) for one-on-one consultations.
 
-A variety of third party packages are used throughout this workshop. These are not necessarily the best, nor are they comprehensive, but they are packages we find useful, and have been chosen primarily for their usability.  
+A variety of third party packages are used throughout this workshop. These are not necessarily the best, nor are they comprehensive, but they are packages we find useful, and have been chosen primarily for their usability.
 
+### This course will teach you how to:
+
+* Use the RStudio interface effectively
+* Understand the different data types and structures used in R
+* Import, manipulate and clean data
+* Obtain simple summary statistics from data
+* Visualise data in a meaningful and elegant way
+
+###  By the end of this course you will be able to:
+
+* Generate reproducible analysis of quantitative data using statistical and visualisation tools
+* Adapt existing computational methods and tools to complete a target task
+* Engage with unfamiliar data problems and identify relevant solution strategies to solve them
 
 ### **Is this for me?**
 
 This course is aimed at novice users of R and Rstudio - those who have never picked up the tools before, and those who may have used them in the past, but would like a refresher.
 
  **You don't need to have any previous knowledge of the tools that will be presented at the workshop.** However, if you have no previous programming experience, and/or start to feel a little lost along the way, we recommend that you consult [these materials](https://nikkirubinstein.gitbooks.io/resguides-introductory-programming-concepts/content/content/welcome-to-coding.html) for a gentle introduction to some core programming concepts.
+
+### How is this taught?
+
+This course will largely be self guided through this GitBook while we're engaged in the virtual campus model. If you get stuck and need extra pointers, shoot an email to **r.unimelb@gmail.com**. Additionally, we will host digital office hours weekly via zoom for on &lt;day&gt; between 4-6, to answer questions and give pointers. You can access these via the eventrbirte links below &lt;initialise with EE?&gt;
 
 ### What do I need?
 
