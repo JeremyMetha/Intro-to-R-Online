@@ -40,6 +40,12 @@ Like installing R, installing RStudio is pretty straightforward. We're going to 
 
 Much like the windows installation, we're going to head over to the [RStudio downloads](https://rstudio.com/products/rstudio/download/#download) page, choose the **RStudio Desktop** version, and download the latest version for macOS, second form the top of the all installers list. Once downloaded, go ahead and run the _RStudio-1.2.5033.dmg_ file, choosing the default options. Simples. 
 
+### RStudio in the Cloud
+
+One last option if you're struggling to setup R and RStudio on your computor is to run a **cloud instance** of RStudio. This allows you to access RStudio through a web browser and run your code on a distant supercomputer over in RStudio HQ. Pretty cool, right!
+
+To do this, you'll need toaccess the RStudio Cloud through [this link](https://rstudio.cloud), and sing up for a free account with them there.
+
 ## Installing packages into RStudio
 
 Now that we've got our R toolbox and RStudio workshop, it's time to go ahead and add some tools, known in R lingo as **packages**. These packages provide extra functionality above and beyond what you can do using just R. Today we're going to install the [tidyverse](https://www.tidyverse.org) package, a set of tools for wrangling and analysing _tidy_ data \(more on that later\).
