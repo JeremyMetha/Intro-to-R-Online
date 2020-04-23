@@ -42,9 +42,15 @@ Much like the windows installation, we're going to head over to the [RStudio dow
 
 ### RStudio in the Cloud
 
-One last option if you're struggling to setup R and RStudio on your computor is to run a **cloud instance** of RStudio. This allows you to access RStudio through a web browser and run your code on a distant supercomputer over in RStudio HQ. Pretty cool, right!
+One last option if you're struggling to setup R and RStudio on your computer is to run a **cloud instance** of RStudio. This allows you to access RStudio through a web browser and run your code on a distant supercomputer over in RStudio headquarters. Pretty cool, right!
 
-To do this, you'll need toaccess the RStudio Cloud through [this link](https://rstudio.cloud), and sing up for a free account with them there.
+To do this, you'll need to access the RStudio Cloud through [this link](https://rstudio.cloud), and sing up for a free account with them there.
+
+### RStudio in the unimelb cloud
+
+The [Melbourne Research Cloud](https://docs.cloud.unimelb.edu.au/) provides Infrastructure-as-a-Service cloud computing to the University of Melbourne researchers, providing access to a robust set of on-demand virtualized computing resources \(such as servers and storage\). The service makes it easy for researchers to quickly access scalable computational power as their research grows, without the overhead of spending precious time and money setting up their own compute environment.
+
+Using the Melbourne Research Cloud you can install RStudio on a cloud computer and access it through the web. You can find instructions on how to do this [here](https://docs.cloud.unimelb.edu.au/guides/application_rstudio/).
 
 ## Installing packages into RStudio
 
