@@ -6,7 +6,7 @@ description: Finding your way around RStudio
 
 Throughout this lesson, we're going to teach you some of the fundamentals of the R language as well as some best practices for organising code for scientific projects that will make your life easier using RStudio: a free, open source R integrated development environment. It provides a built in editor, works on all platforms \(including on servers\) and provides many advantages such as integration with version control and project management.
 
-**Basic layout**
+#### **Basic layout**
 
 When you first open RStudio, you will be greeted by three panels:
 
@@ -91,37 +91,31 @@ From highest to lowest precedence:
 
 * Parentheses: `(`, `)`
 * Exponents: `^` or `**`
-* Divide: `/`
-* Multiply: `*`
-* Add: `+`
-* Subtract: `-`
+* Division: `/`
+* Multiplication: `*`
+* Addition: `+`
+* Subtraction: `-`
 
 Use parentheses to group operations in order to force the order of evaluation if it differs from the default, or to make clear what you intend.
 
 ```r
-3 + 5 * 2
-```
-
-```r
+> 3 + 5 * 2
 [1] 13
 ```
 
 is not the same as
 
 ```r
-(3 + 5) * 2
-```
-
-```r
+> (3 + 5) * 2
 [1] 16
 ```
 
 This can get unwieldy when not needed, but clarifies your intentions. Remember that others may later read your code.
 
 ```r
-(3 + (5 * (2 ^ 2))) # hard to read
-3 + 5 * 2 ^ 2       # clear, if you remember the rules
-3 + 5 * (2 ^ 2)     # if you forget some rules, this might help
+> (3 + (5 * (2 ^ 2))) # hard to read
+> 3 + 5 * 2 ^ 2       # clear, if you remember the rules
+> 3 + 5 * (2 ^ 2)     # if you forget some rules, this might help
 ```
 
 While talking about readable code, make use of **comments** to show what a line is doing
@@ -135,10 +129,7 @@ The text after each line of code is called a comment. Anything that follows afte
 When returning really small or large numbers R will eschew a bunch of zeroes in favour of scientific notation:
 
 ```r
-2/10000
-```
-
-```r
+> 2/10000
 [1] 2e-04
 ```
 
@@ -147,10 +138,7 @@ Which is shorthand for "multiplied by `10^XX`". So `2e-4` is shorthand for `2 * 
 You can write numbers in scientific notation too:
 
 ```r
-5e3  # Note the lack of minus here
-```
-
-```r
+> 5e3  # Note the lack of minus here
 [1] 5000
 ```
 
@@ -159,51 +147,33 @@ You can write numbers in scientific notation too:
 We can also do comparisons in R:
 
 ```r
-1 == 1  # equality (note two equals signs, read as "is equal to")
-```
-
-```r
+> 1 == 1  # equality (note two equals signs, read as "is equal to")
 [1] TRUE
 ```
 
 ```r
-1 != 2  # inequality (read as "is not equal to")
-```
-
-```r
+> 1 != 2  # inequality (read as "is not equal to")
 [1] TRUE
 ```
 
 ```r
-1 <  2  # less than
+> 2 < 1  # less than
+[1] FALSE
 ```
 
 ```r
+> 1 <= 1  # less than or equal to
 [1] TRUE
 ```
 
 ```r
-1 <= 1  # less than or equal to
-```
-
-```r
+> 1 > 0  # greater than
 [1] TRUE
 ```
 
 ```r
-1 > 0  # greater than
-```
-
-```r
-[1] TRUE
-```
-
-```r
-1 >= -9 # greater than or equal to
-```
-
-```r
-[1] TRUE
+> 1 >= 9 # greater than or equal to
+[1] FALSE
 ```
 
 ### Challenges
@@ -219,7 +189,7 @@ How much is 32*19 + 123?
 ```
 {% endtab %}
 
-{% tab title="Solutions" %}
+{% tab title="Solution" %}
 ```r
 > 32*19 + 123 
 [1] 731
@@ -239,10 +209,13 @@ What happens? Do you get a value?
 ```
 {% endtab %}
 
-{% tab title="Solutions" %}
+{% tab title="Solution" %}
 ```r
 > 11*34 + log(10
 + 
+
+# you can see we're still waiting for an input,
+# this is because we didn't close our bracket
 ```
 
 Any time you hit return and the R session shows a **+** instead of a **&gt;**, it means it's waiting for you to complete the command. If you want to cancel a command you can simply hit `Esc` and RStudio will give you back the **&gt;** prompt, forgetting whatever you'd input beforehand.
@@ -259,33 +232,21 @@ Here are just a few of the functions R has on offer.
 
 ```r
 sin(1)  # trigonometry functions
-```
-
-```r
 [1] 0.841471
 ```
 
 ```r
 log(1)  # natural logarithm
-```
-
-```r
 [1] 0
 ```
 
 ```r
 log10(10) # base-10 logarithm
-```
-
-```r
 [1] 1
 ```
 
 ```r
 exp(0.5) # e^(1/2)
-```
-
-```r
 [1] 1.648721
 ```
 
@@ -315,9 +276,12 @@ Can you write an expression to solve this?
 ```
 {% endtab %}
 
-{% tab title="Solutions" %}
+{% tab title="Solution" %}
 ```r
-sin(10) > cos(10)
+# sin(10) is greater than cos(10), we can run a comparison to show this in R
+
+> sin(10) > cos(10)
+[1] TRUE
 ```
 {% endtab %}
 {% endtabs %}
@@ -327,15 +291,18 @@ sin(10) > cos(10)
 {% tabs %}
 {% tab title="Challenge" %}
 ```
-What does “abs()” function do? 
+Find out what the “abs()” function does using the inbuilt help 
 
 How much is abs(10)?
 ```
 {% endtab %}
 
-{% tab title="Solutions" %}
+{% tab title="Solution" %}
 ```r
-?abs
+# ?abs or help(abs) will pull up the documentation for the function
+
+> abs(10)
+[1] 10
 ```
 {% endtab %}
 {% endtabs %}
@@ -345,9 +312,23 @@ How much is abs(10)?
 {% tabs %}
 {% tab title="Challenge" %}
 ```
- What is the square root of 11? 
+What is the square root of 11? 
  
- Is there a function for this in R?
+Is there a function for this in R?
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+ # there are a couple of ways to do this, we can use the exponent operator
+
+> 11 * 0.5
+[1] 3.316625
+
+# or use the sqrt() function
+
+> sqrt(11)
+[1] 3.316625
 ```
 {% endtab %}
 {% endtabs %}
@@ -361,8 +342,25 @@ How do you round numbers to the nearest integer in R?
  
 Is there a function? 
 
-Round 3.5 to the nearest integer. 
- 
+Round 3.5 to the nearest integer.
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+# once again there are a few ways to do this!
+# you can round to the nearest integer using round()
+> round(3.5)
+[1] 4
+
+# round up using ceiling()
+> ceiling(3.5)
+[1] 4
+
+
+# or round down using floor()
+> floor(3.5)
+[1] 4
 ```
 {% endtab %}
 {% endtabs %}
@@ -379,9 +377,6 @@ Notice that assignment does not print a value. Instead, we stored it for later i
 
 ```r
 frequently_used_number
-```
-
-```r
 [1] 0.025
 ```
 
@@ -395,17 +390,14 @@ frequently_used_number = 1/40
 
 Look for the `Environment` tab in the top right pane of RStudio, and you will see that `frequently_used_number` and its value have appeared. Our variable `frequently_used_number` can be used in place of a number in any calculation that expects a number:
 
-```text
+```r
 log(frequently_used_number)
-```
-
-```text
 [1] -3.688879
 ```
 
 Notice also that variables can be reassigned:
 
-```text
+```r
 frequently_used_number <- 100
 ```
 
@@ -413,7 +405,7 @@ frequently_used_number <- 100
 
 Assignment values can contain the variable being assigned to:
 
-```text
+```r
 frequently_used_number <- frequently_used_number + 1 
 # notice how RStudio updates its description in the environement
 ```
@@ -442,29 +434,22 @@ What you use is up to you, but **be consistent**, and remember that you're likel
 
 One final thing to be aware of is that R is **vectorised**, meaning that variables and functions can have vectors as values. For example
 
-```text
-1:5
-```
-
-```text
+```r
+> 1:5
 [1] 1 2 3 4 5
 ```
 
-```text
+```r
 2^(1:5)
-```
-
-```text
 [1]  2  4  8 16 32
 ```
 
-```text
-x <- 1:5
-2^x
-```
+You can create vectors using the `c()` function
 
-```text
-[1]  2  4  8 16 32
+```r
+> x <- c(3, 1, 4, 1, 5, 9)
+> 2^x
+[1] 8 2 16 2 32 512
 ```
 
 This is incredibly powerful, but we will discuss this further in a later lesson. 
@@ -476,10 +461,7 @@ There are a few useful commands you can use to interact with the R session.
 `ls` will list all of the variables and functions stored in the global environment \(your working R session\):
 
 ```text
-ls()
-```
-
-```text
+> ls()
 [1] "hook_error" "hook_in"    "hook_out"   "frequently_used_number"
 ```
 
@@ -488,12 +470,9 @@ Note here that we didn't given any arguments to `ls`, but we still needed to giv
 If we type `ls` by itself, R will print out the source code for that function!
 
 ```r
-ls
-```
-
-```r
-function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
-    pattern, sorted = TRUE) 
+> ls
+function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,    
+pattern, sorted = TRUE) 
 {
     if (!missing(name)) {
         pos <- tryCatch(name, error = function(e) e)
@@ -524,19 +503,19 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     else all.names
 }
 <bytecode: 0x34ad398>
-<environment: namespace:base>
+<environment: namespace:base> 
 ```
 
 You can use `rm` to delete objects you no longer need:
 
 ```r
-rm(frequently_used_number)
+> rm(frequently_used_number)
 ```
 
 If you have lots of things in your environment and want to delete all of them, you can pass the results of `ls` to the `rm` function to do a big spring clean of your environment.
 
 ```r
-rm(list = ls())
+> rm(list = ls())
 ```
 
 In this case we've combined the two. Just like the order of operations, anything inside the innermost parentheses is evaluated first, and so on.
@@ -608,10 +587,22 @@ in the following program?
 {% tabs %}
 {% tab title="Challenge" %}
 ```
-A. Create a vector with these numbers: 
+Create a vector with these numbers: 
 1, 11, 111, 1111
 
 B. What is the square root of each of the numbers in A?
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+# to make a vector of numbers we can use the c() function
+> vector <- c(1, 11, 111, 1111)
+
+
+# and we can take the square root using our sqrt() function
+> sqrt(vector)
+[1] 1.000000  3.316625 10.535654 33.331667
 ```
 {% endtab %}
 {% endtabs %}
@@ -634,8 +625,10 @@ Clean up your working environment by deleting the mass and age variables.
 # Or run them together!
 > rm(list = c('mass', 'age'))
 
-# This is a litle more complicated, 
-# so don't worry if it doesn't make perfect sense yet
+# This is a litle more complicated.
+# We're creating a vector of names of objects, 
+# then removing everything in the vector.
+# Don't worry if this doesn't quite make sense yet.
 ```
 {% endtab %}
 {% endtabs %}
@@ -653,12 +646,12 @@ It is possible to add functions to R by writing a package, or by obtaining a pac
 Note that a package has to be installed only once. However, it must be called every time you open R or RStudio by typing
 
 ```r
-library(packagename)
+> library(packagename)
 ```
 
 ## Challenges
 
-Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
+Here's one last fun challenge for the lesson
 
 ### Challenge 4.1 <a id="challenge-1"></a>
 
@@ -674,6 +667,10 @@ What can you do with this package?
 {% tab title="Solutions" %}
 ```r
 > install.packages("RXKCD")
+
+# this package lets you see XKCD comics in R!
+# if you don't know XKCD, you MUST visit www.xkcd.com 
+# and enjoy some geeky stick figures :)
 ```
 {% endtab %}
 {% endtabs %}
