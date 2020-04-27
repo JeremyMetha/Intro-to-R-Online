@@ -127,7 +127,7 @@ In sqrt(-1) : NaNs produced
 [1] 0 + 1i
 ```
 
-My research is in behaviorla nueroscience, so it's pretty rare that I need to delve into the world of complex numbers, but R has full support for complex algebra if that's what takes your fancy.
+My research is in behavioral neuroscience, so it's pretty rare that I need to delve into the world of complex numbers, but R has full support for complex algebra if that's what takes your fancy.
 
 ### Strings
 
