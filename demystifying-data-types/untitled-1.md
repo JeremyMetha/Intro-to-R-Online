@@ -63,7 +63,7 @@ To differentiate themselves from the more common double type, integers in R are 
 For the most part, R will automatically handle and swap between integers and doubles as neccesary, and the difference is generally not something you generally need to worry about.
 
 ```r
-> 1L + 1.5 # although we started with an integer
+                > 1L + 1.5 # although we started with an integer
 [2.5] # R knows we want a double at the other end
 ```
 
