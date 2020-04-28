@@ -115,7 +115,7 @@ or just the last elements with `tail()`
  [1]  99.0  99.1  99.2  99.3  99.4  99.5  99.6  99.7  99.8  99.9 100.0
 ```
 
-or pick and choose sections of the vector by **subsetting** using `[]` brackets to select the position, or **index**, of the elements we want
+or pick and choose sections of the vector by **subsetting** using `[]` brackets to select the position, or **index**, of the elements we want.
 
 ```r
 # we can subset a single index
@@ -139,7 +139,7 @@ or pick and choose sections of the vector by **subsetting** using `[]` brackets 
 
 #### Modifying vectors
 
-In addition to chopping up vectors by subsetting, we can also modify them or add to them by **reassigning** in the same way we'd assign a variable
+In addition to chopping up vectors by subsetting, we can also modify them or add to them by **reassigning** in the same way we'd assign a variable.
 
 ```r
 # let's fix that our strings vector by replacing that "f" with a "b"
@@ -159,15 +159,106 @@ In addition to chopping up vectors by subsetting, we can also modify them or add
 
 #### Vectors and coercion
 
-One limitation of vectors is that they can only contain one type of data. Let's try to make a vector with some different data types
+One limitation of vectors is that they can **only** contain one type of data. Let's try to make a vector with some different data types.
+
+```r
+# if we try for a mix of data types
+> mixed_bag <- c(TRUE, 10, 5+3i, "far_too_many_ducks")
+
+# everything will be coerced into the most complex type
+
+> typeof(mixed_bag)
+[1] "character"
+
+> mixed_bag
+[1] "TRUE" "10" "5+3i" "far_too_many_ducks"
+```
+
+No worries, if we do want to group together objects with different data types, we just need to use a different data structure, this brigns us to **lists**.
 
 ### Lists
 
-#### Looking into lists
+Lists are a lot like vectors, except you can store data of multiple types in them!  
+To create a list, we use the `list()` function rather than `c().`
+
+```r
+> mixed_bag <- list(TRUE, 10, 5+3i, "far_too_many_ducks")
+
+> mixed_bag
+[[1]]
+[1] TRUE
+
+[[2]]
+[1] 10
+
+[[3]]
+[1] 5+3i
+
+[[4]]
+[1] "far_too_many_ducks"
+```
+
+As you can see, calling a list looks quite different to calling a vector. They also show up in a new spot in the environment panel.
+
+![The list is a data object, not just a set of values](../.gitbook/assets/screen-shot-2020-04-28-at-9.24.19-pm.png)
+
+See that litttle blue circle on the left? Clicking on that will show us some more information about our list.
+
+![Look at all those data types](../.gitbook/assets/screen-shot-2020-04-28-at-9.29.29-pm.png)
+
+#### Looking at and modifying lists
+
+Just like with vectors, we can look at the elemnts of a list with the `head()` and `tail()` functions and reassign them of a list by using `[]`brackets and indices.
+
+```r
+# you can subset lists
+
+> mixed_bag[3:4] 
+[[1]]
+[1] 5+3i
+
+[[2]]
+[1] "far_too_many_ducks"
+
+# change them
+> mixed_bag[2] <- 35
+
+# and add to them
+
+> mixed_bag[5] <- list(strings)
+
+> mixed_bag
+[[1]]
+[1] TRUE
+
+[[2]]
+[1] 35
+
+[[3]]
+[1] 5+3i
+
+[[4]]
+[1] "far_too_many_ducks"
+
+[[5]]
+[1] "a" "b" "c" "d" "e" "f" # a vector in a list, freaky
+```
+
+"Lists are great! Why would I ever want to use vectors?" you might say. Unfortunately, when using lists there are fewer calculations and manipulations you can do to them.
+
+```r
+# this works totally fine
+> c(1, 2, 3, 4, 5) + 1
+[1] 2 3 4 5 6
+
+# but this does not
+> list(1, 2, 3, 4, 5) + 1
+Error in list(1, 2, 3, 4, 5) + 1 : non-numeric argument to binary operator
+```
 
 ### Data Frames
 
-
+The last data structre we're going to look at today is the **data frame**.
 
 
 
