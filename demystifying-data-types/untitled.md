@@ -1,5 +1,5 @@
 ---
-description: 'A tibble, a vector, and a data frame walk into a bar...'
+description: 'A list, a vector, and a data frame walk into a bar...'
 ---
 
 # Data Structures
@@ -258,7 +258,26 @@ Error in list(1, 2, 3, 4, 5) + 1 : non-numeric argument to binary operator
 
 ### Data Frames
 
-The last data structre we're going to look at today is the **data frame**.
+The last data structre we're going to look at today is the **data frame**. Data frames are incredibly powerful as a means for representing tabular data.
 
+Let's say we've a collection of different observations for a group of things.
 
+```r
+> name <- c("Otis", "Luna", "Puss", "Garfield")
+> colour <- c("black", "calico", "tabby", "ginger")
+> weight <- c(11, 8, 13, 42)
+> hates_mondays <- c(FALSE, FALSE, FALSE, TRUE)
+```
+
+Rather than storing them in individual lists or vectors, we can combine them all into a data frame!
+
+```r
+> cats <- data.frame(name, colour, weight, hates_mondays)
+> cats
+      name colour weight hates_mondays
+1     Otis  black     11         FALSE
+2     Luna calico      8         FALSE
+3     Puss  tabby     13         FALSE
+4 Garfield ginger     42          TRUE
+```
 
