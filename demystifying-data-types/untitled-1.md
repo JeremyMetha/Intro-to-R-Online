@@ -187,9 +187,5 @@ Warning message:
 NAs introduced by coercion # ruh roh!
 ```
 
-### Challenges
-
-`TBD`
-
 Now that we've explored the different **types** of data in R, lets pack them up into some different **data structures.**
 
