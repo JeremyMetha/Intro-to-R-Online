@@ -202,7 +202,7 @@ As you can see, calling a list looks quite different to calling a vector. They a
 
 ![The list is a data object, not just a set of values](../.gitbook/assets/screen-shot-2020-04-28-at-9.24.19-pm.png)
 
-See that litttle blue circle on the left? Clicking on that will show us some more information about our list.
+See that litttle blue circle  with the white triangle on the left? Clicking on that will show us some more information about our list.
 
 ![Look at all those data types](../.gitbook/assets/screen-shot-2020-04-28-at-9.29.29-pm.png)
 
@@ -244,16 +244,20 @@ Just like with vectors, we can look at the elemnts of a list with the `head()` a
 [1] "a" "b" "c" "d" "e" "f" # a vector in a list, freaky
 ```
 
-"Lists are great! Why would I ever want to use vectors?" you might say. Unfortunately, when using lists there are fewer calculations and manipulations you can do to them.
+"Lists are great! Why would I ever want to use vectors?" you might say. Unfortunately, when using lists there are fewer calculations and manipulations you can do to them. Fortunately, it's not at all hard to turn a list into a vector - just use the `unlist()` function
 
 ```r
 # this works totally fine
-> c(1, 2, 3, 4, 5) + 1
+>a_vector <-  c(1, 2, 3, 4, 5) 
+>a_vector + 1
 [1] 2 3 4 5 6
 
 # but this does not
-> list(1, 2, 3, 4, 5) + 1
-Error in list(1, 2, 3, 4, 5) + 1 : non-numeric argument to binary operator
+>a_list <-  list(1, 2, 3, 4, 5) + 1
+Error in a_ list(1, 2, 3, 4, 5) + 1 : non-numeric 
+argument to binary operator
+
+
 ```
 
 ### Data Frames
@@ -280,4 +284,67 @@ Rather than storing them in individual lists or vectors, we can combine them all
 3     Puss  tabby     13         FALSE
 4 Garfield ginger     42          TRUE
 ```
+
+Here you can see our vectors have been turned into the **columns** of our data frame, each named after the name of the vecotr that we used to create them. 
+
+Like lists, dataframes appear in the data section of the environment, and clicking the blue circle will show us some more infor about our data frame.
+
+![](../.gitbook/assets/screen-shot-2020-04-29-at-9.56.22-am.png)
+
+Additionally, clicking on the little table icon in the top right will open a new window next to our script showing us everything in our dataframe.
+
+![Garfield is definitely the odd one out here...](../.gitbook/assets/screen-shot-2020-04-29-at-9.57.17-am.png)
+
+#### Looking at and modifying data frames
+
+Just like vectors and lists, we can access and edit parts of our data frame by using `[]` brackets and indices. Given that data frames are 2 dimensional, we need to specify both a row index and a column index for the entry we want to modify, separated by a comma. It looks a little soomething like this `[row, column].` By leaving one of these entries blank, we can instead access the eintre row `[row,]` or column `[,column]` at once. 
+
+```r
+# accessing a specific element
+> cats[2, 1]
+[1] "Luna"
+
+# accessing a whole column
+> cats[,1]
+[1] "Otis"     "Luna"     "Puss"     "Garfield"
+
+# accessing a whole row
+> cats[4,]
+      name colour weight hates_mondays
+4 Garfield ginger     42          TRUE
+```
+
+We'll often want to access entire columns at a time to manipulate them. In addition to accessing them via index, we can access them by name using the `data_frame$column_name` syntax.
+
+```r
+# garfield at least is looking a little chonky
+> cats$weight
+[1] 11  8 13 42
+
+# let's put the cats on a diet
+> cats$weight <- sqrt(cats$weight) + 5
+
+> cats$weight
+[1]  8.316625  7.828427  8.605551 11.480741
+
+# unfortunately, his dislike of mondays has spread 
+# let's update the data frame to show this
+
+> cats$hates_mondays <- TRUE
+
+# assigning a single value to a column will
+# change the entire column to that value
+> cats$ hates_mondays
+[1] TRUE TRUE TRUE TRUE
+```
+
+#### Data frames as vectors and lists
+
+You may have noticed that the operations we can do on data frames fall somewhere between what we can do with vectors, and what we can do with lists. This is no coincedence, a data frame is really just a vector/list hybrid! 
+
+In a data frame, every **row** is a list of attributes for an object or event \(in our example, an individual cat\), while every **column** is a vector of a specific attribute for all our data.
+
+It is this vector property that makes data frames such a powerful tool for data analysis, but more on that next lesson when we jump **into the tidyverse!**
+
+
 
