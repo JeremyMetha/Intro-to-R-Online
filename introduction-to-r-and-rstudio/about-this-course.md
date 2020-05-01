@@ -34,13 +34,13 @@ This course is aimed at novice users of R and Rstudio - those who have never pic
 
 ### How is this taught?
 
-This course will largely be self guided through this GitBook while we're engaged in the virtual campus model. If you get stuck and need extra pointers, shoot an email to **r.unimelb@gmail.com**. Additionally, we will host digital office hours weekly via zoom for on &lt;day&gt; between 4-6, to answer questions and give pointers. You can access these via the eventrbirte links below &lt;initialise with EE?&gt;
+This course will be taught through a series of online workshops, as well as self-guided learning  through this GitBook while we're engaged in the virtual campus model. If you get stuck and need extra pointers, shoot an email to **r.unimelb@gmail.com**. 
 
 ### What do I need?
 
 This course is designed to get you into the Rstudio environment and working with it as you learn. To do this you will need:
 
-* A laptop running Windows 10 or macOS
+* A laptop running Windows 10 or macOS X
 * An internet connection \(although if you've made it this far, that shouldnt be a problem\)
 * A copy of R and RStudio installed on your laptop - don't worry, we're about to show you how to set that up on the next page
 
