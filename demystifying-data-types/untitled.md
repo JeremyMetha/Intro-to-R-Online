@@ -6,9 +6,9 @@ description: 'A list, a vector, and a data frame walk into a bar...'
 
 Just like data types, all of our data objects in R also belong to **data structures**. We're already familiar with **values** and **vectors**, now read on to meet the rest of the family!
 
-### Values
+## Values
 
-The simplest data structure in R is that of a single value, like what got back in the last chapter from running
+The simplest data structure in R is that of a single value, like what get back from running:
 
 ```r
 frequently_used_number  <- 1/40
@@ -16,11 +16,11 @@ frequently_used_number  <- 1/40
 
 For all intents and purposes, R treats these values as vectors, just with only a single element! With that said, let's move along to some _real_ vectors \(sorry `frequently_used_number`\).
 
-### Vectors
+## Vectors
 
-Vectors are the other data structrue we've already ran into, and are the simplest way of storing multiple data elements in R.
+Vectors are the other data structure we have already ran into. They are the simplest way of storing multiple data elements in R.
 
-Let's go ahead and make some vectors using the concatentate function `c().`
+Let's go ahead and make some vectors using the concatenate function `c()`.
 
 ```r
 # a logical vector 
@@ -33,7 +33,7 @@ integers <- c(1:10) # the colon ":" gives us the sequence
 # a numeric vector 
 doubles <- integers + 0.1 # here we're coercing our integer vector of
                           # 1 to 10 into a numeric vector of 1.1 to 10.1
-# a string vector 
+# a character vector 
 strings <- c("a", "f", "c", "d", "e") # remember the quotation marks
 
 # and a looooooong numeric vector, just because
@@ -42,11 +42,11 @@ long <- seq(1, 100, 0.1) # seq will generate a vector from 1 to 1000,
                           # in 0.1 unit steps
 ```
 
-At it's core, R is a language built around vectors. As such, there are a lot of inbuilt functions we can use to manipulate them. We'll go over a few now
+At its core, R is a language built around vectors. As such, there are a lot of inbuilt functions we can use to manipulate them. We'll go over a few now.
 
-#### Looking into a vector
+### Looking into a vector
 
-The first thign we might want to do with our vector is look at it. Let's call our long vector and see what's in it
+The first thing we might want to do with our vector is look at it. Let's call our long vector and see what's in it:
 
 ```r
 > long
@@ -93,7 +93,7 @@ The first thign we might want to do with our vector is look at it. Let's call ou
 
 Jeez thats a lot of data! Fortunately we have a couple of different ways to look at parts of the vector without looking at the whole thing.
 
-We can look at just the first elements with `head()`
+We can look at just the first few elements with `head()`
 
 ```r
 > head(long)
@@ -104,7 +104,7 @@ We can look at just the first elements with `head()`
  [1] 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0
 ```
 
-or just the last elements with `tail()`
+or just the last few elements with `tail()`
 
 ```r
 > tail(long)
@@ -137,7 +137,9 @@ or pick and choose sections of the vector by **subsetting** using `[]` brackets 
 [1] "a"
 ```
 
-#### Modifying vectors
+Note that indexing in R starts at 1. That is, if you want the first element of `sample_vector` you just need to type `sample_vector[1]`.  Intuitive, right?
+
+### Modifying vectors
 
 In addition to chopping up vectors by subsetting, we can also modify them or add to them by **reassigning** in the same way we'd assign a variable.
 
@@ -157,7 +159,7 @@ In addition to chopping up vectors by subsetting, we can also modify them or add
 [1] "a" "b" "c" "d" "e" "f"
 ```
 
-#### Vectors and coercion
+### Vectors and coercion
 
 One limitation of vectors is that they can **only** contain one type of data. Let's try to make a vector with some different data types.
 
@@ -174,12 +176,71 @@ One limitation of vectors is that they can **only** contain one type of data. Le
 [1] "TRUE" "10" "5+3i" "far_too_many_ducks"
 ```
 
-No worries, if we do want to group together objects with different data types, we just need to use a different data structure, this brigns us to **lists**.
+No worries, if we do want to group together objects with different data types, we just need to use a different data structure, this brings us to **lists**...
 
-### Lists
+### Challenges
 
-Lists are a lot like vectors, except you can store data of multiple types in them!  
-To create a list, we use the `list()` function rather than `c().`
+#### Challenge 1.1
+
+{% tabs %}
+{% tab title="Challenge" %}
+```r
+# What is the data type of each of the following objects:
+> c(1, 2, 3)
+c('d', 'e', 'f') 
+c("d", "e", "f") 
+c(TRUE,1L,10)
+c("11",10,12)
+c("Sun","night", FALSE)
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> v1 = c('d', 'e', 'f') 
+> typeof(v1)
+[1] "character"
+> v2 = c("d", "e", "f") 
+> typeof(v2)
+[1] "character"
+> v3 = c(TRUE,1L,10)
+> typeof(v3)
+[1] "double"
+> v4 = c("11",10,12)
+> typeof(v4)
+[1] "character"
+> v5 = c("Sun","night", FALSE)
+> typeof(v5)
+[1] "character"
+```
+{% endtab %}
+{% endtabs %}
+
+#### Challenge 1.2
+
+{% tabs %}
+{% tab title="Challenge" %}
+```r
+# Subsetting vectors
+# 1. Create a vector that ranges from 10 to 50 in steps of 3.
+# 2. How many elements are in the vector?
+# 3. What is the value of the 7th element 7 in the vector?
+# 4. Replace the 10th element in the vector with your favourite number in the whole world.
+# 5. How can you access the last 8 elements of the vector? Try finding two alternative ways.
+# 6. Advanced: what is the sum of all the elements except the first 3 elements?
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+
+```
+{% endtab %}
+{% endtabs %}
+
+## Lists
+
+Lists are a lot like vectors, except you can store data of multiple types in them! To create a list, we use the `list()` function rather than `c()`. 
 
 ```r
 > mixed_bag <- list(TRUE, 10, 5+3i, "far_too_many_ducks")
@@ -202,13 +263,13 @@ As you can see, calling a list looks quite different to calling a vector. They a
 
 ![The list is a data object, not just a set of values](../.gitbook/assets/screen-shot-2020-04-28-at-9.24.19-pm.png)
 
-See that litttle blue circle  with the white triangle on the left? Clicking on that will show us some more information about our list.
+See that little blue circle  with the white triangle on the left? Clicking on that will show us some more information about our list.
 
 ![Look at all those data types](../.gitbook/assets/screen-shot-2020-04-28-at-9.29.29-pm.png)
 
-#### Looking at and modifying lists
+### Looking into a list
 
-Just like with vectors, we can look at the elemnts of a list with the `head()` and `tail()` functions and reassign them of a list by using `[]`brackets and indices.
+Just like with vectors, we can look at the elements of a list with the `head()` and `tail()` functions and reassign them  by using `[]`brackets and indices.
 
 ```r
 # you can subset lists
@@ -219,13 +280,25 @@ Just like with vectors, we can look at the elemnts of a list with the `head()` a
 
 [[2]]
 [1] "far_too_many_ducks"
+```
 
-# change them
-> mixed_bag[2] <- 35
+However, see the double square brackets `[[]]` ? The output is stored in a list!  If you want to access an element in a list without the `list` wrapper you need to use double square brackets `[[]]` to access objects in the list:
+
+```r
+# Use double sqaure brackets to unwrap the output
+
+> mixed_bag[[4]] 
+[1] "far_too_many_ducks"
+```
+
+Finally, you can modify a list as well as add elements to it using `[[]]`
+
+```r
+# You can modify lists
+> mixed_bag[[2]] <- 35
 
 # and add to them
-
-> mixed_bag[5] <- list(strings)
+> mixed_bag[[5]] <- strings
 
 > mixed_bag
 [[1]]
@@ -244,27 +317,67 @@ Just like with vectors, we can look at the elemnts of a list with the `head()` a
 [1] "a" "b" "c" "d" "e" "f" # a vector in a list, freaky
 ```
 
-"Lists are great! Why would I ever want to use vectors?" you might say. Unfortunately, when using lists there are fewer calculations and manipulations you can do to them. Fortunately, it's not at all hard to turn a list into a vector - just use the `unlist()` function
+### Modifying lists
+
+You might be saying: "Lists are great! Why would I ever want to use vectors?". Unfortunately, when using lists there are fewer calculations and manipulations you can do to them. Fortunately, it's not at all hard to turn a list into a vector - just use the `unlist()` function
 
 ```r
 # this works totally fine
->a_vector <-  c(1, 2, 3, 4, 5) 
->a_vector + 1
+> a_vector <-  c(1, 2, 3, 4, 5) 
+> a_vector + 1
 [1] 2 3 4 5 6
 
 # but this does not
->a_list <-  list(1, 2, 3, 4, 5) + 1
+> a_list <-  list(1, 2, 3, 4, 5) + 1
 Error in a_ list(1, 2, 3, 4, 5) + 1 : non-numeric 
 argument to binary operator
 
 
 ```
 
-### Data Frames
+### Challenges
 
-The last data structre we're going to look at today is the **data frame**. Data frames are incredibly powerful as a means for representing tabular data.
+#### Challenge 2.1
 
-Let's say we've a collection of different observations for a group of things.
+{% tabs %}
+{% tab title="Challenge" %}
+```r
+# What is the data type of each of the following objects:
+> c(1, 2, 3)
+c('d', 'e', 'f') 
+c("d", "e", "f") 
+c(TRUE,1L,10)
+c("11",10,12)
+c("Sun","night", FALSE)
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> v1 = c('d', 'e', 'f') 
+> typeof(v1)
+[1] "character"
+> v2 = c("d", "e", "f") 
+> typeof(v2)
+[1] "character"
+> v3 = c(TRUE,1L,10)
+> typeof(v3)
+[1] "double"
+> v4 = c("11",10,12)
+> typeof(v4)
+[1] "character"
+> v5 = c("Sun","night", FALSE)
+> typeof(v5)
+[1] "character"
+```
+{% endtab %}
+{% endtabs %}
+
+## Data Frames
+
+The last data structure we're going to look at today is the **data frame**. Data frames are incredibly powerful as a means for representing tabular data.
+
+Let's say we've a collection of different observations for a group of cats.
 
 ```r
 > name <- c("Otis", "Luna", "Puss", "Garfield")
@@ -285,19 +398,21 @@ Rather than storing them in individual lists or vectors, we can combine them all
 4 Garfield ginger     42          TRUE
 ```
 
-Here you can see our vectors have been turned into the **columns** of our data frame, each named after the name of the vecotr that we used to create them. 
+Here you can see our vectors have been turned into the **columns** of our data frame, each named after the name of the vector that we used to create them. 
 
-Like lists, dataframes appear in the data section of the environment, and clicking the blue circle will show us some more infor about our data frame.
+Like lists, data frames appear in the data section of the environment, and clicking the blue circle will show us some more information about our data frame.
 
 ![](../.gitbook/assets/screen-shot-2020-04-29-at-9.56.22-am.png)
 
-Additionally, clicking on the little table icon in the top right will open a new window next to our script showing us everything in our dataframe.
+Additionally, clicking on the little table icon in the top right will open a new window next to our script showing us everything in our data frame in spreadsheet style!
 
 ![Garfield is definitely the odd one out here...](../.gitbook/assets/screen-shot-2020-04-29-at-9.57.17-am.png)
 
-#### Looking at and modifying data frames
+### Looking at and modifying data frames
 
-Just like vectors and lists, we can access and edit parts of our data frame by using `[]` brackets and indices. Given that data frames are 2 dimensional, we need to specify both a row index and a column index for the entry we want to modify, separated by a comma. It looks a little soomething like this `[row, column].` By leaving one of these entries blank, we can instead access the eintre row `[row,]` or column `[,column]` at once. 
+Just like vectors and lists, we can access and edit parts of our data frame by using `[]` brackets and indices. Given that data frames are 2 dimensional, we need to specify both a row index and a column index for the entry we want to modify, separated by a comma.  It looks something like this `[row, column].` 
+
+By leaving one of these entries blank, we can instead access the entire row `[row,]` or column `[,column]` at once. 
 
 ```r
 # accessing a specific element
@@ -314,10 +429,10 @@ Just like vectors and lists, we can access and edit parts of our data frame by u
 4 Garfield ginger     42          TRUE
 ```
 
-We'll often want to access entire columns at a time to manipulate them. In addition to accessing them via index, we can access them by name using the `data_frame$column_name` syntax.
+We will often want to access entire columns at a time to manipulate them. In addition to accessing them via index, we can access them by name using the `data_frame$column_name` syntax.
 
 ```r
-# garfield at least is looking a little chonky
+# garfield is looking a little chonky
 > cats$weight
 [1] 11  8 13 42
 
@@ -338,13 +453,51 @@ We'll often want to access entire columns at a time to manipulate them. In addit
 [1] TRUE TRUE TRUE TRUE
 ```
 
-#### Data frames as vectors and lists
+### Data frames as vectors and lists
 
-You may have noticed that the operations we can do on data frames fall somewhere between what we can do with vectors, and what we can do with lists. This is no coincedence, a data frame is really just a vector/list hybrid! 
+You may have noticed that the operations we can do on data frames fall somewhere between what we can do with vectors, and what we can do with lists. This is no coincidence, a data frame is really just a vector/list hybrid! 
 
-In a data frame, every **row** is a list of attributes for an object or event \(in our example, an individual cat\), while every **column** is a vector of a specific attribute for all our data.
+In a data frame, every **row** is a list of attributes for an object or event \(in our example, an individual cat\), while every **column** is a vector of a specific attribute for all our data. So basically, a row is an observation and a column is a variable.
 
 It is this vector property that makes data frames such a powerful tool for data analysis, but more on that next lesson when we jump **into the tidyverse!**
 
+### Challenges
 
+#### Challenge 3.1
+
+{% tabs %}
+{% tab title="Challenge" %}
+```r
+# What is the data type of each of the following objects:
+> c(1, 2, 3)
+c('d', 'e', 'f') 
+c("d", "e", "f") 
+c(TRUE,1L,10)
+c("11",10,12)
+c("Sun","night", FALSE)
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> v1 = c('d', 'e', 'f') 
+> typeof(v1)
+[1] "character"
+> v2 = c("d", "e", "f") 
+> typeof(v2)
+[1] "character"
+> v3 = c(TRUE,1L,10)
+> typeof(v3)
+[1] "double"
+> v4 = c("11",10,12)
+> typeof(v4)
+[1] "character"
+> v5 = c("Sun","night", FALSE)
+> typeof(v5)
+[1] "character"
+```
+{% endtab %}
+{% endtabs %}
+
+#### Challenge 1.2
 

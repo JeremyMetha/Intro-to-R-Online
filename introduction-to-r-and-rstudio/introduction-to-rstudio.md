@@ -180,7 +180,7 @@ We can also do comparisons in R:
 
 Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
 
-### Challenge 1.1 <a id="challenge-1"></a>
+#### Challenge 1.1
 
 {% tabs %}
 {% tab title="Challenge" %}
@@ -197,7 +197,7 @@ How much is 32*19 + 123?
 {% endtab %}
 {% endtabs %}
 
-### Challenge 1.2 <a id="challenge-2"></a>
+#### Challenge 1.2
 
 {% tabs %}
 {% tab title="Challenge" %}
@@ -264,7 +264,7 @@ Typing a `?` before the name of a command will open the help page for that comma
 
 ### Challenges
 
-### Challenge 2.1 <a id="challenge-1"></a>
+#### Challenge 2.1
 
 {% tabs %}
 {% tab title="Challenge" %}
@@ -286,7 +286,7 @@ Can you write an expression to solve this?
 {% endtab %}
 {% endtabs %}
 
-### Challenge 2.2 <a id="challenge-1"></a>
+#### Challenge 2.2
 
 {% tabs %}
 {% tab title="Challenge" %}
@@ -307,7 +307,7 @@ How much is abs(10)?
 {% endtab %}
 {% endtabs %}
 
-### Challenge 2.3 <a id="challenge-2"></a>
+#### Challenge 2.3
 
 {% tabs %}
 {% tab title="Challenge" %}
@@ -333,7 +333,7 @@ Is there a function for this in R?
 {% endtab %}
 {% endtabs %}
 
-### Challenge 2.4 <a id="challenge-2"></a>
+#### Challenge 2.4
 
 {% tabs %}
 {% tab title="Challenge" %}
