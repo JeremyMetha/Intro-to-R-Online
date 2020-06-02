@@ -14,7 +14,7 @@ description: 'Where to find help: Community, videos, books, cheatsheets and more
 *  [Introduction to R for Social Scientists and Humanists](https://arts.unimelb.edu.au/research/digital-studio/news-and-events)
 * [Library](http://unimelb.libguides.com/stat_software/R) \(See book recommendations!\)
 
-If you are involved in any other R-related events or communities at unimelb please shoot us an email at r.unimelb@gmail.com. We would love to hear about them!
+If you are involved in \(or know of\) any other R-related events or communities at unimelb please shoot us an email at r.unimelb@gmail.com. We would love to hear about them!
 
 ## Online Community
 
