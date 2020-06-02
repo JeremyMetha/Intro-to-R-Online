@@ -225,15 +225,45 @@ c("Sun","night", FALSE)
 # 1. Create a vector that ranges from 10 to 50 in steps of 3.
 # 2. How many elements are in the vector?
 # 3. What is the value of the 7th element 7 in the vector?
-# 4. Replace the 10th element in the vector with your favourite number in the whole world.
-# 5. How can you access the last 8 elements of the vector? Try finding two alternative ways.
-# 6. Advanced: what is the sum of all the elements except the first 3 elements?
+# 4. Replace the 10th element in the vector with your favourite 
+#    number in the whole world.
+# 5. How can you access the last 8 elements of the vector? 
+#    Try finding two alternative ways.
+# 6. Advanced: what is the sum of all the elements except the 
+#    first 3 elements?
 ```
 {% endtab %}
 
 {% tab title="Solution" %}
 ```r
+# 1 
+> vec = seq(10,50,3)
 
+# 2
+> length(vec)
+[1] 14
+
+# 3
+> vec[7]
+[1] 28
+
+# 4
+> vec[10] = 24
+
+# 5
+> tail(vec,8) # one option
+[1] 28 31 34 24 40 43 46 49
+> vec[7:14] # another option
+[1] 28 31 34 24 40 43 46 49
+
+# 6 (Advanced)
+> vec[-c(1:3)] 
+[1] 19 22 25 28 31 34 24 40 43 46 49
+> subset_vec = vec[-c(1:3)]
+> subset_vec 
+[1] 19 22 25 28 31 34 24 40 43 46 49
+> sum(subset_vec)
+[1] 361
 ```
 {% endtab %}
 {% endtabs %}
@@ -342,33 +372,39 @@ argument to binary operator
 {% tabs %}
 {% tab title="Challenge" %}
 ```r
-# What is the data type of each of the following objects:
-> c(1, 2, 3)
-c('d', 'e', 'f') 
-c("d", "e", "f") 
-c(TRUE,1L,10)
-c("11",10,12)
-c("Sun","night", FALSE)
+1. Create a list with the following 4 elements:
+I. "I love summer"
+II. TRUE
+III. "fun temperatures"
+IV. c(24,25,26)
+
+2. Access (and unwrap) the third element.
+
+3. Change the second element to FALSE
+
+4. Advanced: Change the third fun temperature to 30 (that is, change 26 to 30)
+
 ```
 {% endtab %}
 
 {% tab title="Solution" %}
 ```r
-> v1 = c('d', 'e', 'f') 
-> typeof(v1)
-[1] "character"
-> v2 = c("d", "e", "f") 
-> typeof(v2)
-[1] "character"
-> v3 = c(TRUE,1L,10)
-> typeof(v3)
-[1] "double"
-> v4 = c("11",10,12)
-> typeof(v4)
-[1] "character"
-> v5 = c("Sun","night", FALSE)
-> typeof(v5)
-[1] "character"
+# 1
+> list_one = list("I love summer",TRUE,"fun temperatures",c(24,25,26))
+# 2
+> list_one[[3]]
+[1] "fun temperatures"
+# 3
+> list_one[[2]] = FALSE
+# 4 (Advanced)
+> list_one[[4]][3] = 30
+
+> list_one
+[[1]][1] 
+"I love summer"
+[[2]][1] FALSE
+[[3]][1] "fun temperatures"
+[[4]][1] 24 25 30
 ```
 {% endtab %}
 {% endtabs %}
@@ -429,6 +465,8 @@ By leaving one of these entries blank, we can instead access the entire row `[ro
 4 Garfield ginger     42          TRUE
 ```
 
+You can also access the last few rows and the last few rows of your data frame using `head(cats)` and `tail(cats).`
+
 We will often want to access entire columns at a time to manipulate them. In addition to accessing them via index, we can access them by name using the `data_frame$column_name` syntax.
 
 ```r
@@ -463,41 +501,81 @@ It is this vector property that makes data frames such a powerful tool for data 
 
 ### Challenges
 
+R comes with some datasets. We are going to be suing the `mtcars` dataset for these challenges:
+
+```r
+data_f = mtcars
+```
+
 #### Challenge 3.1
 
 {% tabs %}
 {% tab title="Challenge" %}
 ```r
-# What is the data type of each of the following objects:
-> c(1, 2, 3)
-c('d', 'e', 'f') 
-c("d", "e", "f") 
-c(TRUE,1L,10)
-c("11",10,12)
-c("Sun","night", FALSE)
+# Have a look at the data frame in your environment.
+# How many columns and rows does the data frame has?
 ```
 {% endtab %}
 
 {% tab title="Solution" %}
 ```r
-> v1 = c('d', 'e', 'f') 
-> typeof(v1)
-[1] "character"
-> v2 = c("d", "e", "f") 
-> typeof(v2)
-[1] "character"
-> v3 = c(TRUE,1L,10)
-> typeof(v3)
-[1] "double"
-> v4 = c("11",10,12)
-> typeof(v4)
-[1] "character"
-> v5 = c("Sun","night", FALSE)
-> typeof(v5)
-[1] "character"
+# You can look directly at data_f in your environment 
+# or type the following command:
+> dim(data_f)
+[1] 32 11 
+# 32 obseravations (rows)
+# 11 variables (columns)
 ```
 {% endtab %}
 {% endtabs %}
 
-#### Challenge 1.2
+#### Challenge 3.2
+
+{% tabs %}
+{% tab title="Challenge" %}
+```r
+Access the first 3 rows of the data frame
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+# One option
+> head(data_f,3)
+               mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+
+# Another option: 
+> data_f[1:3,]
+               mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+```
+{% endtab %}
+{% endtabs %}
+
+#### Challenge 3.3
+
+{% tabs %}
+{% tab title="Challenge" %}
+```r
+# 1. Access the mpg column.
+# 2. Change the third element of the mpg column to 33.3
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> data_f$mpg 
+[1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2[24] 13.3 19.2 27.3 26.0 30.4 15.8 19.7 15.0 21.4
+
+> data_f$mpg[3] = 33.3
+> data_f$mpg 
+[1] 21.0 21.0 33.3 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2[24] 13.3 19.2 27.3 26.0 30.4 15.8 19.7 15.0 21.4
+```
+{% endtab %}
+{% endtabs %}
 

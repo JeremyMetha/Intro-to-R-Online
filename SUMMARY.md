@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Welcome!](README.md)
+* [Finding Resources](finding-resources.md)
 
 ## Working with R and RStudio <a id="introduction-to-r-and-rstudio"></a>
 
