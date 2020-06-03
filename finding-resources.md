@@ -51,7 +51,7 @@ If you are involved in \(or know of\) any other R-related events or communities 
 
 {% embed url="https://www.youtube.com/watch?v=s4EfGvUMnqA" %}
 
-#### Don't code it PIPE IT! Simplify R coding with one simple trick.
+#### Don't code it, PIPE IT! Simplify R coding with one simple trick.
 
 {% embed url="https://www.youtube.com/watch?v=hI1qy8C-5VE&t=6s" %}
 
