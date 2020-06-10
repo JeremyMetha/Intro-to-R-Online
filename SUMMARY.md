@@ -14,3 +14,9 @@
 * [Data Types](demystifying-data-types/untitled-1.md)
 * [Data Structures](demystifying-data-types/untitled.md)
 
+## Into the Tidyverse!
+
+* [The Tidyverse](into-the-tidyverse/the-tidyverse.md)
+* [Reading and Cleaning Data in RStudio](into-the-tidyverse/untitled.md)
+* [Manipulating Data with dplyr](into-the-tidyverse/manipulating-data-with-dplyr.md)
+
