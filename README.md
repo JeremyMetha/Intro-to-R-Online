@@ -8,7 +8,7 @@ Hello and welcome to the wonderful world of **R and RStudio**, ****brought to yo
 
 ![](.gitbook/assets/dataviz.png)
 
-At Research Computing Services, we offer a range of free workshops and community events \([found here!](https://www.eventbrite.com.au/o/research-computing-services-10600096884)\) aimed at teaching you the digital tools and skills needed to get the most out of your research. Our focus is on researchers teaching researcherswith many of our trainers currently performing research in masters or doctoral degrees.
+At Research Computing Services, we offer a range of free workshops and community events \([found here!](https://www.eventbrite.com.au/o/research-computing-services-10600096884)\) aimed at teaching you the digital tools and skills needed to get the most out of your research. Our focus is on researchers teaching researchers with many of our trainers currently performing research in masters or doctoral degrees. Subscribe to our [mailing list](http://eepurl.com/gZUS6b) to hear all about our upcoming events: conferences, workshops, meetups and more! 
 
 
 

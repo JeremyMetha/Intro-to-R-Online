@@ -2,6 +2,7 @@
 
 * [Welcome!](README.md)
 * [Finding Resources](finding-resources.md)
+* [Acknowledgments](acknowledgments.md)
 
 ## Working with R and RStudio <a id="introduction-to-r-and-rstudio"></a>
 

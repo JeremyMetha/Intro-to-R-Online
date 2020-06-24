@@ -4,6 +4,12 @@ description: 'Where to find help: Community, videos, books, cheatsheets and more
 
 # Finding Resources
 
+## Join the R community at the University of Melbourne
+
+Subscribe to our mailing list to hear all about our upcoming events: conferences, workshops, meetups and more! 
+
+[**Subscribe Now**](http://eepurl.com/gZUS6b)
+
 ## Resources at the University of Melbourne
 
 * [Research Computing Services](https://research.unimelb.edu.au/infrastructure/research-computing-services)
