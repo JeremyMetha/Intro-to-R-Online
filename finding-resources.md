@@ -45,7 +45,10 @@ If you are involved in \(or know of\) any other R-related events or communities 
   * [dplyr](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
   * [ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
 * [Useful Commands for data analysis](https://resbaz.github.io/R_intro_May/reference.html)
-* Some silly mistakes we make in R and how to fix them.
+
+## Some Tips in R to Save you Time
+
+![](.gitbook/assets/rtip2.png)
 
 ## E-learning videos
 
