@@ -13,7 +13,7 @@ Subscribe to our mailing list to hear all about our upcoming events: conferences
 ## Resources at the University of Melbourne
 
 * [Research Computing Services](https://research.unimelb.edu.au/infrastructure/research-computing-services)
-  * [FREE events!](https://www.eventbrite.com.au/o/research-computing-services-10600096884)
+  * [FREE R workshops, meetups and mor](https://www.eventbrite.com.au/o/research-computing-services-10600096884)[e!](https://www.eventbrite.com.au/o/research-computing-services-10600096884)
 * [Statistical Consulting Centre](https://scc.ms.unimelb.edu.au/)
   * [Statistics for Research Workers using R](https://scc.ms.unimelb.edu.au/statistics-courses/course-listing/srw-R)
   * [Introduction to R and Reproducible Research](https://scc.ms.unimelb.edu.au/statistics-courses/course-listing/research-and-r)
