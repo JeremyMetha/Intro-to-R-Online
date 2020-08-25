@@ -51,8 +51,6 @@ With pipes in hand, let's go transform some data!
 
 ### Challenges
 
-Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
-
 #### Challenge 1.1
 
 {% tabs %}
@@ -127,8 +125,6 @@ and the list goes on! Using `filter()`, you can slice up your dataset into whate
 
 ### Challenges
 
-Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
-
 #### Challenge 2.1
 
 {% tabs %}
@@ -185,8 +181,6 @@ We can also combine this with filter to grab only the specific information we're
 Note that the `select()` function needs to come **after** the `filter()` function, otherwise there wouldn't be anything for us to filter by!
 
 ### Challenges
-
-Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
 
 #### Challenge 3.1
 
@@ -260,8 +254,6 @@ $42,011 is a damn lot for a ticket!
 This is quite a powerful feature, especially when combined with the next two tools, `group_by()` and `summarise()`.
 
 ### Challenges
-
-Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
 
 #### Challenge 4.1
 
@@ -388,26 +380,59 @@ Here we can see that the majority of passengers \(especially those in 3rd class\
 
 ### Challenges
 
-Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
-
 #### Challenge 5.1
 
 {% tabs %}
 {% tab title="Challenge" %}
 ```
-How much is 32*19 + 123?
+Find the overall survival rate using the summarise() function.
 ```
 {% endtab %}
 
 {% tab title="Solution" %}
 ```r
-> 32*19 + 123 
-[1] 731
+> summary_results = titanic_cleaned %>%
+    summarise(survival_rate = mean(Survived))
+
+> summary_results
+# A tibble: 1 x 1  
+  survival_rate
+          <dbl>
+          0.404
+
 ```
 {% endtab %}
 {% endtabs %}
 
 #### Challenge 5.2
+
+{% tabs %}
+{% tab title="Challenge" %}
+```
+Calculate the survival rate per Class and Sex. 
+Which combination of Class and Sex had the highest survival rate?
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> summary_results = titanic_cleaned %>%
+    group_by(Sex,Pclass) %>%
+    summarise(survival_rate = mean(Survived))
+# A tibble: 6 x 3
+# Groups:   Sex [2]  
+Sex    Pclass survival_rate  
+<chr>   <dbl>         <dbl>
+female      1         0.9642 
+female      2         0.9193 
+female      3         0.4614 
+male        1         0.3965 
+male        2         0.1526 
+male        3         0.150
+
+```
+{% endtab %}
+{% endtabs %}
 
 ## Saving your data
 
@@ -439,24 +464,22 @@ Go for it!
 
 ### Challenges
 
-Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
-
 #### Challenge 6.1
 
 {% tabs %}
 {% tab title="Challenge" %}
 ```
-How much is 32*19 + 123?
+Save a dataset that includes only first class passengers as a .tsv file.
 ```
 {% endtab %}
 
 {% tab title="Solution" %}
 ```r
-> 32*19 + 123 
-[1] 731
+> first_class_passengers = titanic_cleaned %>% 
+    filter(Pclass == 1)
+    
+> write_tsv(first_class_passengers, path="titanic_first_class.txt")
 ```
 {% endtab %}
 {% endtabs %}
-
-#### Challenge 6.2
 
