@@ -10,7 +10,7 @@ Today we're going to cover 5 key functions that'll come in handy in your data tr
 
 But before we get onto that, let's talk about another key feature in the tidyverse that makes reading and writing code a breeze! Ladies and gentlemen, meet the [**pipe**](https://magrittr.tidyverse.org/) ****`%>%`.
 
-### Piping your data
+## Piping your data
 
 The pipe is a useful tool that simplifies writing code by allowing us to string together functions into a single **pipeline,** which can be executed all at once. Let's take another look at our cleaning code from the last chapter.
 
@@ -49,7 +49,29 @@ _Hint: Rather than typing out the symbols `%>%`every time you want a pipe, you c
 
 With pipes in hand, let's go transform some data!
 
-### filter\(\)
+### Challenges
+
+Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
+
+#### Challenge 1.1
+
+{% tabs %}
+{% tab title="Challenge" %}
+```
+Write the following command using the pipe operator:
+> sum(2,10)
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> 2 %>% sum(10)
+[1] 12
+```
+{% endtab %}
+{% endtabs %}
+
+## filter\(\)
 
 The first function we're going to have a look at, is `filter()`. This is a useful function for selecting a **subset** of observations \(rows\) of our data, based on whatever conditions we might want. Remember those comparisons we were using back in the first chapter? Now we can get a chance to use them!
 
@@ -103,7 +125,45 @@ Or female passengers from 1st class who survived the voyage...
 
 and the list goes on! Using `filter()`, you can slice up your dataset into whatever specific subsets you might want.
 
-### select\(\)
+### Challenges
+
+Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
+
+#### Challenge 2.1
+
+{% tabs %}
+{% tab title="Challenge" %}
+```
+Produce a data frame with only those passengers that:
+Are males older than 30 years old.
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> titanicMale30=titanic%>% filter(Sex=="male", Age>30)
+```
+{% endtab %}
+{% endtabs %}
+
+#### Challenge 2.2
+
+{% tabs %}
+{% tab title="Challenge" %}
+```
+Produce a data frame with only those passengers that:
+Are Females between the ages of 5 and 60 (Not including 5 and 60 y/o)
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> titanicFemale5_60=titanic%>% filter(Sex==“female”, Age>5, Age<60)
+```
+{% endtab %}
+{% endtabs %}
+
+## select\(\)
 
 Here's one we've already seen in action. While `filter()` works to subset our data on a **row by row** basis, `select()` lets us subset our data by **columns**. We can do this in a couple of ways. Either by dropping variables we don't want by placing a minus `-` sign in front of them, like we did while cleaning the dataset, or by specifying which columns we want to keep by name.
 
@@ -124,7 +184,52 @@ We can also combine this with filter to grab only the specific information we're
 
 Note that the `select()` function needs to come **after** the `filter()` function, otherwise there wouldn't be anything for us to filter by!
 
-### mutate\(\)
+### Challenges
+
+Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
+
+#### Challenge 3.1
+
+{% tabs %}
+{% tab title="Challenge" %}
+```
+Produce a data frame that does not include the names of the passengers.
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> titanic_no_names <- titanic_cleaned %>% 
+    select(-Name)
+```
+{% endtab %}
+{% endtabs %}
+
+#### Challenge 3.2
+
+{% tabs %}
+{% tab title="Challenge" %}
+```
+1. Write a single command (which can span multiple lines and includes pipes) that 
+will produce a tibble that has the values for Age, SibSp and Fare for males only. 
+
+2. How many rows does your tibble have and why?
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> titanic_male <- titanic_cleaned %>% 
+     filter(Sex=="male") %>% 
+     select(Age,Sibsp,Fare)
+> nrow(titanic_male)
+[1] 453
+# There were 453 males passengers
+```
+{% endtab %}
+{% endtabs %}
+
+## mutate\(\)
 
 While `filter()` and `select()` are tools useful for _reducing_ our dataset, `mutate()` allows us to do the opposite and _generate_ new columns in our dataset. 
 
@@ -154,7 +259,30 @@ $42,011 is a damn lot for a ticket!
 
 This is quite a powerful feature, especially when combined with the next two tools, `group_by()` and `summarise()`.
 
-### group\_by\(\) and summarise\(\)
+### Challenges
+
+Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
+
+#### Challenge 4.1
+
+{% tabs %}
+{% tab title="Challenge" %}
+```
+Create a DataFrame with a new numeric variable that has the Fare value rounded to
+the nearest integer.
+Hint: Use the function round()
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> titanic_round_fare <- titanic_cleaned %>%
+    mutate(fareRound = round(Fare))
+```
+{% endtab %}
+{% endtabs %}
+
+## group\_by\(\) and summarise\(\)
 
 `group_by()` and `summarise()`are a pair of functions which work hand in hand to draw comparisons between, and answer questions about subsets of our dataset.
 
@@ -258,7 +386,30 @@ And by grouping by multiple variables we can dive deeper into understanding the 
 
 Here we can see that the majority of passengers \(especially those in 3rd class\) embarked at Southampton, with a bunch more first class passengers joining at Cherbourg, and very few hopping aboard at Queenstown.
 
-### Saving your data
+### Challenges
+
+Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
+
+#### Challenge 5.1
+
+{% tabs %}
+{% tab title="Challenge" %}
+```
+How much is 32*19 + 123?
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> 32*19 + 123 
+[1] 731
+```
+{% endtab %}
+{% endtabs %}
+
+#### Challenge 5.2
+
+## Saving your data
 
 Having performed our analyses, the last thing we might want to do is save our data into a file somewhere. When manipulating data in the _tidyverse_, the only place anything is changing is within RStudio itself, not in the underlying files we loaded the data from. 
 
@@ -285,4 +436,27 @@ Or you can select it manually by going to the menu and clicking on Session &gt; 
 With these tools under your belt, you're now ready to go tackle your own datasets and read, transform, export, and question to your heart's content. 
 
 Go for it!
+
+### Challenges
+
+Now that you're familiar with the fundamentals, here are a few challenges to test what you've learned.
+
+#### Challenge 6.1
+
+{% tabs %}
+{% tab title="Challenge" %}
+```
+How much is 32*19 + 123?
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+> 32*19 + 123 
+[1] 731
+```
+{% endtab %}
+{% endtabs %}
+
+#### Challenge 6.2
 

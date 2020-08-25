@@ -143,8 +143,8 @@ Now that we've imported and cleaned our data,  here is a challenge to test what 
 {% tabs %}
 {% tab title="Challenge" %}
 ```r
-# 1. How many observations (rows) are now in the clean data set?
-# 2. How many variables (columns) are now in the clean data set?
+1. How many observations (rows) are now in the clean data set?
+2. How many variables (columns) are now in the clean data set?
 ```
 {% endtab %}
 
@@ -160,6 +160,28 @@ Now that we've imported and cleaned our data,  here is a challenge to test what 
 # 2.
 > ncol(titanic_cleaned)
 [1] 11
+```
+{% endtab %}
+{% endtabs %}
+
+#### Challenge 2
+
+{% tabs %}
+{% tab title="Challenge" %}
+```r
+1. Is there commmands to import .tsv files? 
+2. How can you import excel files?
+
+HINT: Look at the tidyr/readr cheatsheet.
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+# 1.
+> df <- read_tsv("file_name")
+
+# 2. Use the "readxl" package 
 ```
 {% endtab %}
 {% endtabs %}
