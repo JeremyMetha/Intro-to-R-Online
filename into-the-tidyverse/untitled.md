@@ -1,28 +1,30 @@
 ---
-description: 'Getting your data in, and ready to work with'
+description: 'Getting your data in, and ready to work with.'
 ---
 
-# Reading and Cleaning Data in RStudio
+# Reading and Cleaning Data
 
 ### Reading data into RStudio
 
 Before we can do any data manipulation or management, we need to get some data into R in the first place! 
 
-The tidyverse package used to read data into R is, maybe unsuprisingly,  called _readr_, and contains several different functions used to read in different types of tabular data. You can read about these different functions in the _tidyr_ cheatsheet [here](https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf) \(RStudio puts out many of these [helpful cheatsheets](https://rstudio.com/resources/cheatsheets/) as quick references for useful packages - I have a bunch printed out and stuck to the wall inmy office, they're great!\)
+The tidyverse package used to read data into R is, maybe unsurprisingly,  called _readr._  It contains several different functions used to read in different types of tabular data. You can read about these different functions in the _tidyr_ cheatsheet [here](https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf) \(RStudio puts out many of these [helpful cheatsheets](https://rstudio.com/resources/cheatsheets/) as quick references for useful packages - I have a bunch printed out and stuck to the wall in my office, they're great!\).
 
-Today, we're going to use the `read_csv()`function to read in a dataset containing information about passangers aboard the titanic. We can do this using the following code:
+Today, we are going to use the `read_csv()`function to read in a dataset \(in csv format\) containing information about passengers aboard the titanic. We can do this using the following code:
 
 ```r
 > titanic = read_csv("https://goo.gl/4Gqsnz")
 ```
 
-This line of code downloads a **comma separated value \(CSV\)** file containg our dataset from the web link [https://goo.gl/4Gqsnz](https://goo.gl/4Gqsnz), and loading it into a variable named titanic in our RStudio environment. Pretty neat huh?
+This line of code downloads a **comma separated value \(CSV\)** file containing our dataset from the web link [https://goo.gl/4Gqsnz](https://goo.gl/4Gqsnz), and loads it into a variable named titanic in our RStudio environment. Pretty neat huh?
+
+Note that with this command you can also import files from your computer by specifying a filename instead of the url we used.
 
 ### Exploring our dataset
 
-Now that we've got our dataset ready to roll, let's take a look at it! There are a couple of dufferent ways we can go about this.
+Now that we have our dataset ready to roll, let's take a look at it! There are a couple of different ways we can go about this.
 
-One quick and eays way to check out a dataset is by using the `glimpse()` function.
+One quick and easy way to check out a dataset is by using the `glimpse()` function.
 
 ```r
 > glimpse(titanic)
@@ -44,18 +46,18 @@ $ Embarked    <chr> "S", "C", "S", "S", "S", "Q", "S", "S", "S", "C", "S", "S"â€
 
 `glimpse()` gives us a quick overview of what our dataset contains, including the number of observations \(rows\) in our dataset, the number of variables \(columns\) in our dataset, and the first few entries in each of those variables. To better understand the data, here are what each of these variables represent:
 
-* PassengerId: Just an indexing number unique for each passenger
-* Survived: Whether or not the passenger survived. 0 = No, 1 = Yes. These are commonly used for binary outcomes, and if coerced into a logical would be `FALSE/TRUE` respectively
+* PassengerId: Just an indexing number unique for each passenger.
+* Survived: Whether or not the passenger survived. 0 = No, 1 = Yes. These are commonly used for binary outcomes, and if coerced into a logical would be `FALSE/TRUE`, respectively.
 * Pclass: Ticket class: 1 = 1st Class, 2 = 2nd Class, 3 = 3rd Class.
-* Name: A character string containing the name of each passenger. Simples.
-* Sex: Character strings for passenger sex \(`"male"/ "female"`\) note that everything is in lower case, as R is **case-sensitive**
-* Age: Age in years
+* Name: A character string containing the name of each passenger.
+* Sex: Character strings for passenger sex \(`"male"/ "female"`\) note that everything is in lower case, as R is **case-sensitive.**
+* Age: Age in years.
 * SibSp: The number of siblings/spouses aboard the titanic with the passenger
-* Parch: The number of parents/childer aboard the titanic with the passenger
-* Ticket: Another character string contsaining the ticket number of the passenger
-* Fare: The price padi for tickets in pounds stirling \(multiply by 82 for a roughly equivalent price in AUD today. Keep in mind that unskilled workers made around 1 pound a week,  these were _expensive_ tickets!\)
-* Cabin: The cabin number of the passengers
-* Embarked: Where passengers boarded the titanic. C = Cherbourg, Q = Queenstown, S = Southampton\)
+* Parch: The number of parents/children aboard the titanic with the passenger
+* Ticket: Another character string containing the ticket ID of the passenger.
+* Fare: The price paid for tickets in pounds Sterling \(multiply by 82 for a roughly equivalent price in 2020 AUD. Keep in mind that unskilled workers made around 1 pound a week,  these were _expensive_ tickets!\)
+* Cabin: The cabin number of the passengers \(character\).
+* Embarked: Where passengers boarded the titanic. C = Cherbourg, Q = Queenstown, S = Southampton\).
 
 Another useful command for having a quick look at a dataset is the `summary()` function, which can provide some quick summary statistics for our variables.
 
@@ -78,15 +80,22 @@ Another useful command for having a quick look at a dataset is the `summary()` f
  Max.   :6.0000                      Max.   :512.33
 ```
 
-Lastly, if we want to explore the whole dataset, we can access RStudio's inbuilt data viewer by clicking the table icon next to our dataset in the envionment panel or by using the `view()` function.
+Lastly, if we want to explore the whole dataset, we can access RStudio's inbuilt data viewer by clicking the table icon next to our dataset in the environment panel or by using the `View()` function.
+
+![View your data in a spreadsheet format.](../.gitbook/assets/rstudi_env.png)
 
 ### Cleaning our dataset
 
-Now that we have our data in our RStudio environment, then next thing we need to do is **clean** it! Cleaning data refers to the process of removing errors or missing values from the dataset, and is a crucial step in data analysis - _how can we trust the results of an analysis if the data going into it isn't up to scratch?_ 
+Now that we have our data in our RStudio environment, the next thing we need to do is **clean** it! Cleaning data refers to the process of removing errors or missing values from the dataset, and is a crucial step in data analysis - _how can we trust the results of an analysis if the data going into it isn't up to scratch?_ 
 
 Looking at the `glimpse()` from before, we can see quite a few missing values in our dataset. In R, these missing values are represented by an `NA` tag. Removing or resolving these **NA's** is an important part of cleaning our data, as many functions in R won't know what to do when they encounter such values.
 
-Let's have a look at which variables contain these missing values. To do this, we're going to combine 2 functions; `is.na()`which returns a logical `TRUE/FALSE` value whenever it finds a missing value, and `colSums()` which sums up all the values in each column of our dataframe. Let's go ahead and see where those NAs are located.
+Let's have a look at which variables contain these missing values. To do this, we're going to combine 2 functions:
+
+*  `is.na()` returns a logical `TRUE/FALSE` value whenever it finds a missing value.
+* `colSums()` sums up all the values in each column of our dataframe. 
+
+Let's go ahead and see where those NAs are located.
 
 ```r
 > colSums(is.na(titanic))
@@ -96,15 +105,22 @@ PassengerId    Survived      Pclass        Name         Sex         Age       Si
         687           2 
 ```
 
-Here we can see we have 177 missing values in our age column, 2 missing values in our embarked column, and a whopping 687 missing values in our cabin number column. Given that our dataset contains 891 observations in total, this is a huge fraction! 
+Here we can see we have 177 missing values in our `Age` column, 2 missing values in our `Embarked` column, and a whopping 687 missing values in our `Cabin` number column. Given that our dataset contains 891 observations in total, this is a huge fraction! 
 
-The most straightforward way to deal with missing values is to delete the observations that contain them from our dataset, but doing so in this case would leave us very little data to work with. Instead, let's first remove the entire cabin variable from our dataset using the `select()` function, then remove the entries with missing values using the `na.omit()` function. That might look a little like this:
+The most straightforward way to deal with missing values is to delete the observations \(rows\) that contain them from our dataset, but doing so in this case would leave us very little data to work with. Instead, let's first remove the entire `Cabin` variable from our dataset given that we won't be using this variable for our analysis. 
+
+In order to remove the column we are going to use a function from the tidyverse \(dplyr\): `select()`.
 
 ```r
-# we create a new cleaned titanic dataset, 
+# We create a new clean titanic dataset, 
 # and select everything MINUS the cabin variable
 > titanic_no_cabin <- select(titanic, -Cabin) 
+```
 
+We now remove the entries with missing values using the `na.omit()` function. That might look a little like this:
+
+```r
+# we create a new clean titanic dataset, 
 # then we remove the NA's
 > titanic_cleaned <- na.omit(titanic_no_cabin)
 
@@ -116,5 +132,35 @@ PassengerId    Survived      Pclass        Name         Sex         Age       Si
           0           0 
 ```
 
-Of course, depending on your specific data your cleaning needs may look a litttle different to this, but for now, this dataset is ready to go!
+Of course, depending on your specific data your cleaning needs may look a little different to this, but for now, this dataset is ready to go!
+
+### Challenges
+
+Now that we've imported and cleaned our data,  here is a challenge to test what you've learned.
+
+#### Challenge 1
+
+{% tabs %}
+{% tab title="Challenge" %}
+```r
+# 1. How many observations (rows) are now in the clean data set?
+# 2. How many variables (columns) are now in the clean data set?
+```
+{% endtab %}
+
+{% tab title="Solution" %}
+```r
+# You can answer both questions by typing: 
+> glimpse(titanic_cleaned)
+
+# You can also find the answer with the following commands:
+# 1.
+> nrow(titanic_cleaned)
+[1] 712
+# 2.
+> ncol(titanic_cleaned)
+[1] 11
+```
+{% endtab %}
+{% endtabs %}
 

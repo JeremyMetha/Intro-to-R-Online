@@ -1,12 +1,14 @@
 ---
-description: Bending data to answer your questions
+description: Bending data to answer your questions with dplyr
 ---
 
-# Manipulating Data with dplyr
+# Manipulating Data
 
-To manipulate data in the tidyverse, we go to the _dplyr_ package - a toolbox of different **"data pliers"** we can use to modify and manipulate our dataset. Just like _readr_, _dplyr_ also comes with a handy cheatsheet for data transformation you can find [here](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf). today we're going to cover 5 key functions that'll come in handy in your data transformation. these are `filter()`, `select()`, `mutate()`, `summarise()` and `group_by()`.  
+To manipulate data in the tidyverse, we go to the `dplyr` package - a toolbox of different **"data pliers"** we can use to modify and manipulate our dataset. Just like _readr_, _`dplyr`_ also comes with a handy cheatsheet for data transformation you can find [here](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf). 
 
-But before we get onto that, let's talk about another key feature in the tidyverse that makes reading and writing code a breeze! Ladies and gentlemen, meet the **pipe** `%>%`.
+Today we're going to cover 5 key functions that'll come in handy in your data transformation. These are `filter()`, `select()`, `mutate()`, `summarise()` and `group_by()`.  
+
+But before we get onto that, let's talk about another key feature in the tidyverse that makes reading and writing code a breeze! Ladies and gentlemen, meet the [**pipe**](https://magrittr.tidyverse.org/) ****`%>%`.
 
 ### Piping your data
 
@@ -17,7 +19,7 @@ The pipe is a useful tool that simplifies writing code by allowing us to string 
 > titanic_cleaned <- na.omit(titanic_no_cabin)
 ```
 
-Here we have each command running by itself, and storing data into an intermediate variable called `titanic_no_cabin` in the middle. While this is perfectly fine,  if we do everything in a stepwise manner, we're quickly going to clog up our environment with a whole bunch of intermediate nonses we don't really want.
+Here we have each command running by itself, and storing data into an intermediate variable called `titanic_no_cabin` in the middle. While this is perfectly fine,  if we do everything in a stepwise manner, we're quickly going to clog up our environment with a whole bunch of intermediate nonsense we don't really want.
 
 Another way to approach this would be to combine these into a single command, like this.
 
@@ -33,9 +35,19 @@ This works fine too, but it's easy to get confused as to what is going on, and c
     na.omit() # then remove the NAs
 ```
 
-The pipe takes whatever the **output** from the function infront of it is, and uses it as the **input** for the next line down, giving us easy to follow and edit code. Rather than typing out the symbols `%>%`every time you want a pipe, you can use the shortcut `shift+command+M` on mac or `shift+control+M` on windows.
+The pipe takes the **output** from the function in the left and uses it as the first **input** for the function on the right \(or next line down\). In a nutshell, the following two commands are equivalent:
 
-With pipes in had, let's go transform some data!
+```r
+> x %>% f(y)
+# This is equivalent to:
+> f(x,y)
+```
+
+The pipe makes it easy to follow and edit code. I you want more resources on the pipe, you can check this video or the documentation [here](https://magrittr.tidyverse.org/).
+
+_Hint: Rather than typing out the symbols `%>%`every time you want a pipe, you can use the shortcut `shift+command+M` on mac or `shift+control+M` on windows._
+
+With pipes in hand, let's go transform some data!
 
 ### filter\(\)
 

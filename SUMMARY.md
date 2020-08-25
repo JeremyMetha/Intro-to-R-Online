@@ -18,6 +18,6 @@
 ## Into the Tidyverse!
 
 * [The Tidyverse](into-the-tidyverse/the-tidyverse.md)
-* [Reading and Cleaning Data in RStudio](into-the-tidyverse/untitled.md)
-* [Manipulating Data with dplyr](into-the-tidyverse/manipulating-data-with-dplyr.md)
+* [Reading and Cleaning Data](into-the-tidyverse/untitled.md)
+* [Manipulating Data](into-the-tidyverse/manipulating-data-with-dplyr.md)
 
