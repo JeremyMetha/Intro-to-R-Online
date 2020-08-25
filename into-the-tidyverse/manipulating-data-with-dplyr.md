@@ -1,5 +1,5 @@
 ---
-description: Bending data to answer your questions with dplyr
+description: Bending data to answer your questions with dplyr.
 ---
 
 # Manipulating Data
