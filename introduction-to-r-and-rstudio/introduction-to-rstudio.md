@@ -524,7 +524,7 @@ In this case we've specified that the results of `ls` should be used for the`lis
 
 ### Challenges
 
-### Challenge 3.1 <a id="challenge-1"></a>
+#### Challenge 3.1
 
 {% tabs %}
 {% tab title="Challenge" %}
@@ -557,7 +557,7 @@ Which of the following are valid R variable names?
 {% endtab %}
 {% endtabs %}
 
-### Challenge 3.2 <a id="challenge-2"></a>
+#### Challenge 3.2
 
 {% tabs %}
 {% tab title="Challenge" %}
@@ -582,7 +582,7 @@ in the following program?
 {% endtab %}
 {% endtabs %}
 
-### Challenge 3.3 <a id="challenge-3"></a>
+#### Challenge 3.3
 
 {% tabs %}
 {% tab title="Challenge" %}
@@ -607,7 +607,7 @@ B. What is the square root of each of the numbers in A?
 {% endtab %}
 {% endtabs %}
 
-### Challenge 3.4 <a id="challenge-4"></a>
+#### Challenge 3.4
 
 {% tabs %}
 {% tab title="Challenge" %}
@@ -649,11 +649,11 @@ Note that a package has to be installed only once. However, it must be called ev
 > library(packagename)
 ```
 
-## Challenges
+### Challenges
 
 Here's one last fun challenge for the lesson
 
-### Challenge 4.1 <a id="challenge-1"></a>
+#### Challenge 4.1
 
 {% tabs %}
 {% tab title="Challenge" %}
