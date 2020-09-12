@@ -546,7 +546,7 @@ Which of the following are valid R variable names?
 ```r
 > min_height # Valid
 > max.height # Valid
-> _age # Valid
+> _age # Invalid, starts with an underscore.
 > .mass # Valid, but does it show up in your environment? 
 # Anything starting with a period (.) is called a hidden variable
 > MaxLength # Valid
