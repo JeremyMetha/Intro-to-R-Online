@@ -21,3 +21,8 @@
 * [Reading and Cleaning Data](into-the-tidyverse/untitled.md)
 * [Manipulating Data](into-the-tidyverse/manipulating-data-with-dplyr.md)
 
+## Putting the R in aRt
+
+* [ggplot2 and the grammar of graphics](putting-the-r-in-art/ggplot2-and-the-grammar-of-graphics.md)
+* [Some Basic Plots](putting-the-r-in-art/some-basic-plots.md)
+

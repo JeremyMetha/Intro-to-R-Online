@@ -204,8 +204,9 @@ Produce a data frame that does not include the names of the passengers.
 {% tabs %}
 {% tab title="Challenge" %}
 ```
-1. Write a single command (which can span multiple lines and includes pipes) that 
-will produce a tibble that has the values for Age, SibSp and Fare for males only. 
+1. Write a single command (which can span multiple lines and 
+includes pipes) that will produce a tibble that has the values for 
+Age, SibSp and Fare for males only. 
 
 2. How many rows does your tibble have and why?
 ```
@@ -260,8 +261,8 @@ This is quite a powerful feature, especially when combined with the next two too
 {% tabs %}
 {% tab title="Challenge" %}
 ```
-Create a DataFrame with a new numeric variable that has the Fare value rounded to
-the nearest integer.
+Create a DataFrame with a new numeric variable that has the Fare value
+rounded to the nearest integer.
 Hint: Use the function round()
 ```
 {% endtab %}
@@ -359,7 +360,7 @@ And by grouping by multiple variables we can dive deeper into understanding the 
 
 ```r
 > titanic_cleaned %>%
-   group_by(Embarked, Pclass) %>% # you can group by more than one variable! 
+   group_by(Embarked, Pclass) %>% # group by multiple variables... 
    summarise(count = n())
 # A tibble: 9 x 3
 # Groups:   Embarked [3]
@@ -458,10 +459,6 @@ If you wan to change the working directory, you can type
 
 Or you can select it manually by going to the menu and clicking on Session &gt; Set Working Directory .
 
-With these tools under your belt, you're now ready to go tackle your own datasets and read, transform, export, and question to your heart's content. 
-
-Go for it!
-
 ### Challenges
 
 #### Challenge 6.1
@@ -482,4 +479,8 @@ Save a dataset that includes only first class passengers as a .tsv file.
 ```
 {% endtab %}
 {% endtabs %}
+
+With these tools under your belt, you're now ready to go tackle your own datasets and read, transform, export, and question to your heart's content. 
+
+Go for it!
 
