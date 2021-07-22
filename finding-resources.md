@@ -12,8 +12,9 @@ Subscribe to our mailing list to hear all about our upcoming events: conferences
 
 ## Resources at the University of Melbourne
 
-* [Digital Skills Training](https://gateway.research.unimelb.edu.au/events/researcher-connect#digital-skills-training)
-  * FREE R workshops, meetups and more!
+* Digital Skills Training
+  * [FREE R workshops, meetups and more!](https://gateway.research.unimelb.edu.au/events/researcher-connect#digital-skills-training)
+  * Digital Skills support: [Slack Channel](https://join.slack.com/t/digitalskillssupport/signup).
 * [Statistical Consulting Centre](https://scc.ms.unimelb.edu.au/)
   * [Statistics for Research Workers using R](https://scc.ms.unimelb.edu.au/statistics-courses/course-listing/srw-R)
   * [Introduction to R and Reproducible Research](https://scc.ms.unimelb.edu.au/statistics-courses/course-listing/research-and-r)
