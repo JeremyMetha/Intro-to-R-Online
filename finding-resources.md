@@ -8,12 +8,12 @@ description: 'Where to find help: Community, videos, books, cheatsheets and more
 
 Subscribe to our mailing list to hear all about our upcoming events: conferences, workshops, meetups and more! 
 
-[**Subscribe Now**](http://eepurl.com/gZUS6b)
+\*\*\*\*[**Subscribe Now**](mailto:mdap-info@unimelb.edu.au?subject=MDAP%20Newsletter%3A%20Subscribe&body=Hi%20MDAP%2C%0A%0APlease%2C%20add%20me%20to%20the%20mailing%20list.%0A%0A)\*\*\*\*
 
 ## Resources at the University of Melbourne
 
-* [Research Computing Services](https://research.unimelb.edu.au/infrastructure/research-computing-services)
-  * [FREE R workshops, meetups and mor](https://www.eventbrite.com.au/o/research-computing-services-10600096884)[e!](https://www.eventbrite.com.au/o/research-computing-services-10600096884)
+* [Digital Skills Training](https://gateway.research.unimelb.edu.au/events/researcher-connect#digital-skills-training)
+  * FREE R workshops, meetups and more!
 * [Statistical Consulting Centre](https://scc.ms.unimelb.edu.au/)
   * [Statistics for Research Workers using R](https://scc.ms.unimelb.edu.au/statistics-courses/course-listing/srw-R)
   * [Introduction to R and Reproducible Research](https://scc.ms.unimelb.edu.au/statistics-courses/course-listing/research-and-r)
